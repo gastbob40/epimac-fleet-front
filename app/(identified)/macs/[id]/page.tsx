@@ -23,7 +23,6 @@ export default async function Page({params}: { params: PageParams }) {
     const updatedAtString = `${updatedAt.toLocaleDateString()} ${updatedAt.toLocaleTimeString()}`;
 
     return (<>
-
         <div className={styles.page__header}>
             <div className={styles.page__header__title}>
                 <div>
@@ -53,6 +52,8 @@ export default async function Page({params}: { params: PageParams }) {
                 <button className={styles.button__danger}>Restart</button>
             </div>
         </div>
+
+        
 
     </>)
 }
