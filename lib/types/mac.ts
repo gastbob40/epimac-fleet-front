@@ -8,4 +8,5 @@ export type Mac = {
     memory: number;
     cpu_cores: number;
     status: 'Available' | 'In Use' | 'Unavailable';
+    last_seen: string;
 };

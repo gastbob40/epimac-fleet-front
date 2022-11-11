@@ -55,7 +55,7 @@
     border-radius: 10px;
 
     padding: 0 8px;
-    opacity: 0.5;
+    opacity: 0.6;
     transition: 0.2s linear;
     cursor: pointer;
 }
@@ -66,8 +66,7 @@
 
 .mac__list__item__active {
     opacity: 1;
-    padding: -5px;
-    box-shadow: 10px 2px 5px 1px #C9D0EB;
+    /* box-shadow: 10px 2px 5px 1px #C9D0EB; */
 }
 
 .mac__list__item__upper {

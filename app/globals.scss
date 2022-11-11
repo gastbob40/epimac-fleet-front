@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/mailtoharshit/San-Francisco-Font-/sanfrancisco.css');
+
 html,
 body {
   padding: 0;
@@ -23,11 +26,23 @@ img {
 body {
   --primary-dark: #4468C8;
   --primary-light: #7192EA;
+  --primary-font: #2f323c;
+  --secondary-font: #6b6f7d;
+  --tertiary-font: #8C97B3;
+
 
   width: 100vw;
   height: 100vh;
 
   display: flex;
+  font-family: "San Francisco", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--primary-font);
 }
 
 header {
@@ -42,7 +57,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-    justify-content: space-between;
+  justify-content: space-between;
 
   nav {
     display: flex;
@@ -68,3 +83,4 @@ header {
     }
   }
 }
+

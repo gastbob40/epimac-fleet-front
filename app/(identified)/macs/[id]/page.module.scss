@@ -1,0 +1,66 @@
+
+.page__header {
+  padding: 32px 32px;
+}
+
+.page__header__title {
+  & > div {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
+
+.page__header__title__status {
+  text-transform: uppercase;
+  padding: 8px;
+  border-radius: 10px;
+
+  font-size: 0.9em;
+  font-weight: 700;
+
+  background-color: transparentize(#18be94, 0.8);
+  color: #18be94;
+}
+
+.page__header__title__status__unavailable {
+  background-color: transparentize(#e96d76, 0.8);
+  color: #e96d76;
+}
+
+.page__header__title__status__in_use {
+  background-color: transparentize(#f7b500, 0.8);
+  color: #f7b500;
+}
+
+.page_header__title__serial_number {
+  font-size: 0.9em;
+  font-weight: 700;
+
+  color: var(--secondary-font);
+}
+
+.page_header__title__update {
+  display: flex;
+  align-items: center;
+
+  font-size: 0.9em;
+  font-weight: 500;
+
+  color: var(--tertiary-font);
+  opacity: 0.5;
+
+  svg {
+    width: 16px;
+    height: 16px;
+
+    margin-right: 8px;
+  }
+}
