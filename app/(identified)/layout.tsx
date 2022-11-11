@@ -6,7 +6,11 @@ import {Mac} from "../../lib/types/mac";
 
 async function getMacs(): Promise<Mac[]> {
     const apiHost = process.env.API_HOST;
-    const response = await fetch(`${apiHost}/api/imacs`);
+    const response = await fetch(`${apiHost}/api/imacs`, {
+        next: {
+            revalidate: 5
+        }
+    });
     return (await response.json())['imacs'];
 }
 
