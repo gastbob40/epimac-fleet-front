@@ -10,12 +10,19 @@ type PageParams = {
 
 async function getMac(macId: number): Promise<MacDetails> {
     const apiHost = process.env.API_HOST;
-    const response = await fetch(`${apiHost}/api/imacs/${macId}`);
+    const response = await fetch(`${apiHost}/api/imacs/${macId}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    });
     return (await response.json());
 }
 
 export default async function Page({params}: { params: PageParams }) {
+    console.log("Waiting for mac details");
     const mac = await getMac(parseInt(params.id));
+    console.log("Got mac details");
 
     const statusClass = mac.status === 'Unavailable' ? styles.page__header__title__status__unavailable :
         mac.status === 'In Use' ? styles.page__header__title__status__in_use : '';

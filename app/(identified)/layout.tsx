@@ -1,6 +1,6 @@
 import '../globals.scss'
 import Link from "next/link";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import MacCard from "../../lib/components/macCard";
 import {Mac} from "../../lib/types/mac";
 
