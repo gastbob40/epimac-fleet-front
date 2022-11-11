@@ -1,5 +1,6 @@
 import {Mac} from "../../../../lib/types/mac";
 import styles from './page.module.scss';
+import Tabs from "../../../../lib/components/tabs";
 
 type PageParams = {
     id: string
@@ -21,6 +22,24 @@ export default async function Page({params}: { params: PageParams }) {
 
     const updatedAt = new Date(mac.last_seen);
     const updatedAtString = `${updatedAt.toLocaleDateString()} ${updatedAt.toLocaleTimeString()}`;
+
+    const tabsConfig = [
+        {
+            label: 'Overview',
+            id: 'overview',
+            element: <div>Overview</div>
+        },
+        {
+            label: 'Applications',
+            id: 'applications',
+            element: <div>Applications</div>
+        },
+        {
+            label: 'Tasks',
+            id: 'tasks',
+            element: <div>Tasks</div>
+        }
+    ];
 
     return (<>
         <div className={styles.page__header}>
@@ -53,7 +72,8 @@ export default async function Page({params}: { params: PageParams }) {
             </div>
         </div>
 
-        
+        <Tabs config={tabsConfig}/>
+
 
     </>)
 }
