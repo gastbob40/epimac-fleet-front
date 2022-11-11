@@ -19,10 +19,8 @@ async function getMac(macId: number): Promise<MacDetails> {
     return (await response.json());
 }
 
-export default async function Page({params}: { params: PageParams }) {
-    console.log("Waiting for mac details");
+export default async function Mac({params}: { params: PageParams }) {
     const mac = await getMac(parseInt(params.id));
-    console.log("Got mac details");
 
     const statusClass = mac.status === 'Unavailable' ? styles.page__header__title__status__unavailable :
         mac.status === 'In Use' ? styles.page__header__title__status__in_use : '';
