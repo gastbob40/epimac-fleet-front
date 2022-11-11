@@ -1,5 +1,7 @@
 import {Mac} from "../../lib/types/mac";
 
+import styles from './page.module.css';
+
 async function getMacs(): Promise<Mac[]> {
     const apiHost = process.env.API_HOST;
     const response = await fetch(`${apiHost}/api/imacs`);
@@ -8,9 +10,8 @@ async function getMacs(): Promise<Mac[]> {
 
 export default async function Home() {
     const macs = await getMacs();
-    console.log(macs);
 
     return (
-        <div></div>
+        <div className={styles.test}>aze</div>
     )
 }
