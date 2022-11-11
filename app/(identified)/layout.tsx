@@ -14,7 +14,7 @@ async function getMacs(): Promise<Mac[]> {
 export default async function RootLayout({children}: {
     children: React.ReactNode
 }) {
-    const macs = (await getMacs()).slice(0, 10);
+    const macs = await getMacs();
 
     return (
         <html lang="en">

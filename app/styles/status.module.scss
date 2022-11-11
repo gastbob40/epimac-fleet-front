@@ -1,0 +1,27 @@
+.status__pill {
+  text-transform: uppercase;
+  padding: 8px;
+  border-radius: 10px;
+
+  font-size: 0.9em;
+  font-weight: 700;
+
+  background-color: transparentize(#18be94, 0.8);
+  color: #18be94;
+}
+
+.status__pill__unavailable {
+  background-color: transparentize(#e96d76, 0.8);
+  color: #e96d76;
+}
+
+.status__pill__in_use {
+  background-color: transparentize(#f7b500, 0.8);
+  color: #f7b500;
+}
+
+.status__pill__small {
+  font-size: 0.5em;
+  padding: 4px 8px;
+  font-weight: 800;
+}

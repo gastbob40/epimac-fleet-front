@@ -5,6 +5,7 @@ import styles from '../../app/(identified)/page.module.css';
 import Link from "next/link";
 import {useSelectedLayoutSegments} from 'next/navigation';
 import {useEffect, useState} from "react";
+import StatusBadge from "./statusBadge";
 
 export default function MacCard({mac}: { mac: Mac }) {
     const segments = useSelectedLayoutSegments();
@@ -26,9 +27,7 @@ export default function MacCard({mac}: { mac: Mac }) {
                     </div>
 
 
-                    <div className={styles.mac__list__item__status}>
-                        {mac.status}
-                    </div>
+                    <StatusBadge status={mac.status} small={true} />
                 </div>
 
                 <div className={styles.macs__list__item__delimiter}></div>

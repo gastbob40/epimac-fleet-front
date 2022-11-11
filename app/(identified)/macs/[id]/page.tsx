@@ -1,17 +1,17 @@
-import {Mac} from "../../../../lib/types/mac";
 import styles from './page.module.scss';
 import Tabs from "../../../../lib/components/tabs";
+import {MacDetails} from "../../../../lib/types/macDetails";
+import Overview from "./overview";
+import StatusBadge from "../../../../lib/components/statusBadge";
 
 type PageParams = {
     id: string
 }
 
-async function getMac(macId: number) {
+async function getMac(macId: number): Promise<MacDetails> {
     const apiHost = process.env.API_HOST;
-    const response = await fetch(`${apiHost}/api/imacs`);
-    const macs = (await response.json())['imacs'];
-
-    return macs.find((mac: Mac) => mac.id === macId);
+    const response = await fetch(`${apiHost}/api/imacs/${macId}`);
+    return (await response.json());
 }
 
 export default async function Page({params}: { params: PageParams }) {
@@ -27,7 +27,7 @@ export default async function Page({params}: { params: PageParams }) {
         {
             label: 'Overview',
             id: 'overview',
-            element: <div>Overview</div>
+            element: <Overview mac={mac}/>
         },
         {
             label: 'Applications',
@@ -46,7 +46,7 @@ export default async function Page({params}: { params: PageParams }) {
             <div className={styles.page__header__title}>
                 <div>
                     <h1>{mac.label}</h1>
-                    <div className={`${styles.page__header__title__status} ${statusClass}`}>{mac.status}</div>
+                    <StatusBadge status={mac.status} />
                 </div>
 
                 <div>

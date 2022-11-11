@@ -23,28 +23,6 @@
   }
 }
 
-.page__header__title__status {
-  text-transform: uppercase;
-  padding: 8px;
-  border-radius: 10px;
-
-  font-size: 0.9em;
-  font-weight: 700;
-
-  background-color: transparentize(#18be94, 0.8);
-  color: #18be94;
-}
-
-.page__header__title__status__unavailable {
-  background-color: transparentize(#e96d76, 0.8);
-  color: #e96d76;
-}
-
-.page__header__title__status__in_use {
-  background-color: transparentize(#f7b500, 0.8);
-  color: #f7b500;
-}
-
 .page_header__title__serial_number {
   font-size: 0.9em;
   font-weight: 700;
@@ -74,4 +52,45 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.overview__properties {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  margin: 16px 0 32px 0;
+
+
+  .overview__properties__item {
+    min-width: 200px;
+
+    h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--tertiary-font);
+      text-transform: uppercase;
+
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+
+    .overview__properties__item__property {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px;
+
+      label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary-font);
+      }
+
+      div {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--tertiary-font);
+      }
+    }
+  }
 }
