@@ -67,7 +67,7 @@ export default async function RootLayout({children}: {
                 {macs.map((mac) => <MacCard key={mac.id} mac={mac}></MacCard>)}
             </div>
         </div>
-        <div>{children}</div>
+        <div style={{flexGrow: 1}}>{children}</div>
         </body>
         </html>
     )

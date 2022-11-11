@@ -1,5 +1,10 @@
+@import "app/styles/buttons";
 
 .page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
   padding: 32px 32px;
 }
 
@@ -63,4 +68,10 @@
 
     margin-right: 8px;
   }
+}
+
+.page__header__action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }

@@ -84,3 +84,24 @@ header {
   }
 }
 
+button {
+  padding: 8px 16px;
+  border-radius: 5px;
+
+  font-size: 1.0em;
+  font-weight: 700;
+
+  outline: none;
+  border: none;
+
+  transition: 0.2s linear;
+  cursor: pointer;
+
+  background: #6781D7;
+  color: white;
+
+
+  &:hover {
+    background-color: darken(#6781D7, 10%);
+  }
+}

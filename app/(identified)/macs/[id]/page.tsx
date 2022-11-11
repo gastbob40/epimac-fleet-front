@@ -22,7 +22,7 @@ export default async function Page({params}: { params: PageParams }) {
     const updatedAt = new Date(mac.last_seen);
     const updatedAtString = `${updatedAt.toLocaleDateString()} ${updatedAt.toLocaleTimeString()}`;
 
-    return (<div className={styles.a}>
+    return (<>
 
         <div className={styles.page__header}>
             <div className={styles.page__header__title}>
@@ -45,7 +45,14 @@ export default async function Page({params}: { params: PageParams }) {
 
                 </div>
             </div>
+
+            <div className={styles.page__header__action}>
+                <button>Awake</button>
+                <button>Unlock</button>
+                <button className={styles.button__danger}>Logout</button>
+                <button className={styles.button__danger}>Restart</button>
+            </div>
         </div>
 
-    </div>)
+    </>)
 }
