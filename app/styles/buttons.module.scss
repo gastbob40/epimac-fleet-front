@@ -1,0 +1,34 @@
+.button__danger {
+  background-color: #e96d76;
+
+  &:hover {
+    background-color: darken(#e96d76, 10%);
+  }
+}
+
+.button__negative {
+  width: 100%;
+
+  color: black;
+  background: white;
+  border: 1px solid #d9dff3;
+
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+
+  &:hover:not(:disabled) {
+    background: black;
+    color: white;
+  }
+}
