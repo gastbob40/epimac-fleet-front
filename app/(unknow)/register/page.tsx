@@ -33,7 +33,6 @@ export default function Login() {
 
         setIsSubmitting(false);
 
-        console.log(response.status, response.ok)
         if (response.ok) {
             setIsValid(true);
         }
@@ -49,6 +48,7 @@ export default function Login() {
                 <div className={styles.login__description}>Fill out this form to request access</div>
 
                 <form onSubmit={onSubmitForm} className={styles.login__form}>
+                    {!isValid &&
                     <div className={styles.form__group}>
                         <input
                             type='email'
@@ -64,7 +64,7 @@ export default function Login() {
                             placeholder={'Why do you want to use Fleet By EpiMac?'}
                             required
                         />
-                    </div>
+                    </div>}
 
                     <button className={styles.form__submit} disabled={isSubmitting || isValid}>
                         {isSubmitting && <Icons.spinner className={styles.login__submit__spinner}/>}
