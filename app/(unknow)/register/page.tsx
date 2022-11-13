@@ -8,22 +8,35 @@ import Link from "next/link";
 
 export default function Login() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [isValid, setIsValid] = useState<boolean>(false);
 
     const router = useRouter();
 
     async function onSubmitForm(event: React.FormEvent) {
         event.preventDefault();
-
         setIsSubmitting(true);
 
-        setTimeout(() => {
-            setIsSubmitting(false);
+        const formData = new FormData(event.target as HTMLFormElement);
+        const email = formData.get('email');
+        const explication = formData.get('explication');
 
-            if (!showPassword) {
-                setShowPassword(true);
-            }
-        }, 1000);
+        const response = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                explication
+            })
+        });
+
+        setIsSubmitting(false);
+
+        console.log(response.status, response.ok)
+        if (response.ok) {
+            setIsValid(true);
+        }
 
         return;
     }
@@ -53,9 +66,11 @@ export default function Login() {
                         />
                     </div>
 
-                    <button className={styles.form__submit} disabled={isSubmitting}>
+                    <button className={styles.form__submit} disabled={isSubmitting || isValid}>
                         {isSubmitting && <Icons.spinner className={styles.login__submit__spinner}/>}
-                        Request access
+                        {isValid && <Icons.check className={styles.login__submit__check}/>}
+
+                        {isValid ? 'Request sent' : 'Request access'}
                     </button>
                 </form>
 

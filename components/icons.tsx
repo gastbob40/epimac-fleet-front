@@ -15,6 +15,7 @@ import {
     Settings,
     Trash,
     User,
+    Check
 } from "lucide-react"
 import type { Icon as LucideIcon } from "lucide-react"
 
@@ -37,4 +38,5 @@ export const Icons = {
     help: HelpCircle,
     pizza: Pizza,
     gitHub: Github,
+    check: Check
 }

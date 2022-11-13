@@ -49,6 +49,10 @@
     animation-timing-function: linear;
   }
 
+  .login__submit__check {
+    width: 16px;
+  }
+
   @keyframes spin {
     from {
       transform: rotate(0deg);

@@ -1,5 +1,5 @@
-import {Mac} from "../types/mac";
-import {MacDetails} from "../types/macDetails";
+import {Mac} from "@/types/mac";
+import {MacDetails} from "@/types/macDetails";
 
 export async function getMacs(): Promise<Mac[]> {
     const apiHost = process.env.API_HOST;
@@ -25,4 +25,17 @@ export async function getMac(id: number | string): Promise<MacDetails | null> {
     }
 
     return await response.json();
+}
+
+export async function postRegisterRequest(email: string, explication: string): Promise<boolean> {
+    const apiHost = process.env.API_HOST;
+    const response = await fetch(`${apiHost}/api/auth/register`, {
+        method: 'POST',
+        body: JSON.stringify({
+            email,
+            explication
+        })
+    });
+
+    return response.ok;
 }
