@@ -1,11 +1,15 @@
 'use client';
 
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import styles from "./login.module.scss";
+import {Icons} from "@/components/icons"
 
 export default function Login() {
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
     const emailInputRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = useRef<HTMLInputElement>(null);
 
@@ -14,8 +18,20 @@ export default function Login() {
     async function onSubmitForm(event: React.FormEvent) {
         event.preventDefault();
 
+        setIsSubmitting(true);
+
         const email = emailInputRef.current?.value;
         const password = passwordInputRef.current?.value;
+
+        setTimeout(() => {
+            setIsSubmitting(false);
+
+            if (!showPassword) {
+                setShowPassword(true);
+            }
+        }, 1000);
+
+        return;
 
         if (email && password) {
             const result = await signIn('credentials', {
@@ -38,20 +54,28 @@ export default function Login() {
                 <div className={styles.login__description}>Enter your email to sign in to your account</div>
 
                 <form onSubmit={onSubmitForm} className={styles.login__form}>
-                    <input
-                        className={styles.login__input}
-                        type='email'
-                        id='email'
-                        placeholder={'name@example.com'}
-                        required
-                        ref={emailInputRef}/>
+                    <div className={styles.login__input}>
+                        <input
+                            type='email'
+                            id='email'
+                            placeholder={'name@example.com'}
+                            required
+                            ref={emailInputRef}/>
 
-                    {/*<div>
-                    <label htmlFor='password'>Your Password</label>
-                    <input type='password' id='password' required ref={passwordInputRef}/>
-                </div> */}
+                        {showPassword &&
+                            <input
+                                type='password'
+                                id='password'
+                                placeholder={'My strong password'}
+                                required
+                                ref={passwordInputRef}/>
+                        }
+                    </div>
 
-                    <button className={styles.login__submit}>submit</button>
+                    <button className={styles.login__submit} disabled={isSubmitting}>
+                        {isSubmitting && <Icons.spinner className={styles.login__submit__spinner}/>}
+                        Sign in with Email
+                    </button>
                 </form>
 
                 <div className={styles.login__divider}>
