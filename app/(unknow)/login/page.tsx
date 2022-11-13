@@ -108,6 +108,10 @@ export default function Login() {
                         CRI
                     </button>
                 </div>
+
+                <a href="/register" className={styles.login__register}>
+                    Don&apos;t have an account? Request one
+                </a>
             </div>
         </div>
     );
