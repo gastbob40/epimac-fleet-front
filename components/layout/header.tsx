@@ -35,6 +35,5 @@ export default function Header() {
                     fill={"currentColor"}/>
             </svg>
         </nav>
-
     </header>);
 }

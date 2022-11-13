@@ -20,13 +20,13 @@
     "incremental": true,
     "paths": {
       "@/lib/*": [
-        "lib/*"
+        "./lib/*"
       ],
       "@/components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@/types/*": [
-        "types/*"
+        "./types/*"
       ]
     },
     "plugins": [
