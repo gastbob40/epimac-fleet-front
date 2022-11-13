@@ -1,27 +1,26 @@
 'use client';
 
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import styles from "./login.module.scss";
 import {Icons} from "@/components/icons"
+import Link from "next/link";
 
 export default function Login() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
-    const emailInputRef = useRef<HTMLInputElement>(null);
-    const passwordInputRef = useRef<HTMLInputElement>(null);
-
     const router = useRouter();
 
     async function onSubmitForm(event: React.FormEvent) {
         event.preventDefault();
+        const data = new FormData(event.target as HTMLFormElement);
 
         setIsSubmitting(true);
 
-        const email = emailInputRef.current?.value;
-        const password = passwordInputRef.current?.value;
+        const email = data.get('email');
+        const password = data.get('password');
 
         setTimeout(() => {
             setIsSubmitting(false);
@@ -58,17 +57,17 @@ export default function Login() {
                         <input
                             type='email'
                             id='email'
+                            name='email'
                             placeholder={'name@example.com'}
-                            required
-                            ref={emailInputRef}/>
+                            required/>
 
                         {showPassword &&
                             <input
                                 type='password'
                                 id='password'
+                                name='password'
                                 placeholder={'My strong password'}
-                                required
-                                ref={passwordInputRef}/>
+                                required/>
                         }
                     </div>
 
@@ -134,9 +133,9 @@ export default function Login() {
                     </button>
                 </div>
 
-                <a href="/register" className={styles.login__register}>
+                <Link href={'/register'} className={styles.login__register}>
                     Don&apos;t have an account? Request one
-                </a>
+                </Link>
             </div>
         </div>
     );
