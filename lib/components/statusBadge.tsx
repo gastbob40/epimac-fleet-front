@@ -1,4 +1,4 @@
-import {MacStatus} from "../types/macStatus";
+import {MacStatus} from "../../types/macStatus";
 import styles from "../../app/styles/status.module.scss";
 
 export default function StatusBadge({status, small = false}: {

@@ -23,7 +23,6 @@ export default function Login() {
                 password: password
             })
 
-            console.log(result);
             if (!result!.error) {
                 await router.replace('/');
             }

@@ -1,29 +1,17 @@
 import styles from './page.module.scss';
 import Tabs from "../../../../lib/components/tabs";
-import {MacDetails} from "../../../../lib/types/macDetails";
+import {MacDetails} from "../../../../types/macDetails";
 import Overview from "./overview";
 import StatusBadge from "../../../../lib/components/statusBadge";
+import { unstable_getServerSession } from "next-auth/next"
+import {getMac} from "@/lib/api";
 
 type PageParams = {
     id: string
 }
 
-async function getMac(macId: number): Promise<MacDetails> {
-    const apiHost = process.env.API_HOST;
-    const response = await fetch(`${apiHost}/api/imacs/${macId}`, {
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    });
-    return (await response.json());
-}
-
 export default async function Mac({params}: { params: PageParams }) {
     const mac = await getMac(parseInt(params.id));
-
-    const statusClass = mac.status === 'Unavailable' ? styles.page__header__title__status__unavailable :
-        mac.status === 'In Use' ? styles.page__header__title__status__in_use : '';
 
     const updatedAt = new Date(mac.last_seen);
     const updatedAtString = `${updatedAt.toLocaleDateString()} ${updatedAt.toLocaleTimeString()}`;
@@ -51,7 +39,7 @@ export default async function Mac({params}: { params: PageParams }) {
             <div className={styles.page__header__title}>
                 <div>
                     <h1>{mac.label}</h1>
-                    <StatusBadge status={mac.status} />
+                    <StatusBadge status={mac.status}/>
                 </div>
 
                 <div>

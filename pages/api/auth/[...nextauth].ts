@@ -1,20 +1,7 @@
-import NextAuth, {NextAuthOptions} from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials"
-import {NextApiRequest, NextApiResponse} from "next";
+import {authOptions} from "@/lib/auth";
+import NextAuth from "next-auth";
 
-export const authOptions: NextAuthOptions = {
-    session: {
-        strategy: 'jwt',
-    },
-    providers: [
-        CredentialsProvider({
-            // @ts-ignore
-            async authorize(credentials) {
-                const user = {id: 1, name: 'Jenny'}
-                return user;
-            },
-        }),
-    ],
-}
-
+/**
+ * @see ./lib/auth
+ */
 export default NextAuth(authOptions)

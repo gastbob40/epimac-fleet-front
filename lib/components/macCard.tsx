@@ -1,6 +1,6 @@
 'use client';
 
-import {Mac} from "../types/mac";
+import {Mac} from "../../types/mac";
 import styles from '../../app/(identified)/page.module.scss';
 import Link from "next/link";
 import {useSelectedLayoutSegments} from 'next/navigation';
