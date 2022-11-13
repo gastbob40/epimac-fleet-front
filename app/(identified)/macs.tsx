@@ -1,6 +1,6 @@
 import styles from "./page.module.scss";
-import MacCard from "../../lib/components/macCard";
-import {Mac} from "../../types/mac";
+import MacCard from "@/components/macCard";
+import {Mac} from "@/types/mac";
 
 export default function Macs({macs}: { macs: Mac[] }) {
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useState} from "react";
-import styles from "../../app/styles/tabs.module.scss";
+import styles from "../app/styles/tabs.module.scss";
 
 
 type TabsConfig = {

@@ -1,10 +1,9 @@
 import styles from './page.module.scss';
-import Tabs from "../../../../lib/components/tabs";
-import {MacDetails} from "../../../../types/macDetails";
+import Tabs from "@/components/tabs";
 import Overview from "./overview";
-import StatusBadge from "../../../../lib/components/statusBadge";
-import { unstable_getServerSession } from "next-auth/next"
+import StatusBadge from "@/components/statusBadge";
 import {getMac} from "@/lib/api";
+import {redirect} from "next/navigation";
 
 type PageParams = {
     id: string
@@ -12,6 +11,8 @@ type PageParams = {
 
 export default async function Mac({params}: { params: PageParams }) {
     const mac = await getMac(parseInt(params.id));
+
+    if (!mac) return redirect("/")
 
     const updatedAt = new Date(mac.last_seen);
     const updatedAtString = `${updatedAt.toLocaleDateString()} ${updatedAt.toLocaleTimeString()}`;
