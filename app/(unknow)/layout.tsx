@@ -15,7 +15,7 @@ export default async function RootLayout({children}: {
       */}
         <head/>
         <body className={styles.body}>
-        {children}
+        <div style={{flexGrow: 1}}>{children}</div>
         </body>
         </html>
     )
