@@ -20,29 +20,37 @@ export default function Login() {
         setIsSubmitting(true);
 
         const email = data.get('email');
+
+        if (!email) {
+            setIsSubmitting(false);
+            return;
+        }
+
+        if (!showPassword) {
+            setShowPassword(true);
+            setIsSubmitting(false);
+            return;
+        }
+
         const password = data.get('password');
 
-        setTimeout(() => {
+        if (!password) {
             setIsSubmitting(false);
-
-            if (!showPassword) {
-                setShowPassword(true);
-            }
-        }, 1000);
-
-        return;
-
-        if (email && password) {
-            const result = await signIn('credentials', {
-                redirect: false,
-                email: email,
-                password: password
-            })
-
-            if (!result!.error) {
-                await router.replace('/');
-            }
+            return;
         }
+
+        const result = await signIn('credentials', {
+            redirect: false,
+            email: email,
+            password: password
+        })
+
+        if (!result || !result.ok) {
+            setIsSubmitting(false);
+            return;
+        }
+
+        await router.replace('/');
     }
 
     return (
