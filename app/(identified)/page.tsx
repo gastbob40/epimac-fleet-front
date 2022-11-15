@@ -1,4 +1,4 @@
-import {Mac} from "../../lib/types/mac";
+import {Mac} from "../../types/mac";
 
 import styles from './page.module.scss';
 

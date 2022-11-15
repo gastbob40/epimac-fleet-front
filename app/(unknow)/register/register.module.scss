@@ -1,0 +1,56 @@
+@import "app/styles/forms.module";
+@import "app/styles/buttons.module";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  max-width: 400px;
+  width: 100%;
+
+  background: white;
+  padding: 32px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login__image {
+  width: 128px;
+}
+
+.login__title {
+  margin-top: 16px;
+  font-weight: 900;
+  font-size: 32px;
+}
+
+.login__description {
+  margin-top: 8px;
+
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondary-font);
+}
+
+.login__form {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.login__register {
+  margin-top: 32px;
+
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondary-font);
+  text-decoration: underline;
+}

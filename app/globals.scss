@@ -100,8 +100,13 @@ button {
   background: #6781D7;
   color: white;
 
+  &:disabled {
+    background: #d9dff3;
+    color: #8C97B3;
+    cursor: not-allowed;
+  }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: darken(#6781D7, 10%);
   }
 }
