@@ -15,6 +15,7 @@ ENV NODE_ENV=production
 WORKDIR /opt/app
 COPY . .
 COPY --from=deps /opt/app/node_modules ./node_modules
+ENV API_HOST=http://100.72.133.46:8000
 RUN yarn build
 
 # Production image, copy all the files and run next
