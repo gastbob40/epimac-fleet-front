@@ -8,6 +8,8 @@
 
 ## Demo
 
+![screenshot](public/demo.png)
+
 ## About this project
 
 This project is for managing a fleet of iMacs. This project is the result of the discontinuation of MacOs Server development
