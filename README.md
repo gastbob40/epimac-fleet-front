@@ -10,7 +10,18 @@
 
 ## About this project
 
+This project is for managing a fleet of iMacs. This project is the result of the discontinuation of MacOs Server development
+It is currently in development and use for the Apple room of [EPITA school](https://www.epita.fr/) by [EpiMac](https://epimac.org/).
+
 ## Features
+
+This application aims to manage Macs with a simple interface. It allows us to:
+- Get the status of the Macs
+- Make action on them (restart, shutdown, unlock remotely, logout, ...)
+- Manage application on all Macs by batch (install, uninstall, update, ...)
+- Manage the configuration of the Macs (set the wallpaper according rules, the screensaver, ...)
+- Manage the accounts on the Macs
+- And more...
 
 ## Roadmap
 
