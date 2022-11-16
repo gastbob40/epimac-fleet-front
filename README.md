@@ -14,6 +14,36 @@
 
 ## Roadmap
 
+- [ ] Auth system
+  - [x] ~~Middleware to check if user is logged in~~
+  - [x] ~~Login page~~
+  - [x] ~~Logout~~
+  - [x] ~~Register page~~
+  - [ ] Connection for Apple / CRI
+  - [ ] User page
+- [ ] Fleet management
+  - [x] ~~List of Macs with status~~
+  - [ ] Detailed view of a Mac
+    - [x] ~~Overview (software, hardware, daemon...)~~
+    - [ ] Applications
+    - [ ] Task status
+    - [ ] Actions
+      - [ ] Awake mac
+      - [ ] Unlock mac
+      - [ ] Restart mac
+      - [ ] Logout mac
+  - [ ] Batch management
+    - [ ] Actions
+        - [ ] Awake mac
+        - [ ] Unlock mac
+        - [ ] Restart mac
+        - [ ] Logout mac
+    - [ ] Applications
+      - [ ] Install
+      - [ ] Uninstall
+      - [ ] Update
+  - [ ] Map of Macs (using room disposition)
+
 ## Running locally
 
 1. Install dependencies using Yarn:
