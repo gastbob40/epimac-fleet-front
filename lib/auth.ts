@@ -1,5 +1,6 @@
 import {NextAuthOptions, User} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import AppleProvider from "next-auth/providers/apple";
 import {postLogin} from "@/lib/api";
 
 export const authOptions: NextAuthOptions = {
@@ -15,5 +16,15 @@ export const authOptions: NextAuthOptions = {
                 return user;
             },
         }),
+        AppleProvider({
+            clientId: process.env.APPLE_ID!!,
+            clientSecret: process.env.APPLE_SECRET!!,
+        })
     ],
+    callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log(account?.provider)
+            return account?.provider !== 'apple';
+        }
+    }
 }

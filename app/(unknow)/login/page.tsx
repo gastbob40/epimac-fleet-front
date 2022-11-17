@@ -53,6 +53,16 @@ export default function Login() {
         await router.replace('/');
     }
 
+    async function loginWithApple() {
+        console.log('loginWithApple');
+        const result = await signIn('apple', {
+            redirect: false,
+
+        });
+
+        console.log(result);
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.login}>
@@ -93,7 +103,7 @@ export default function Login() {
 
 
                 <div className={styles.login__providers}>
-                    <button className={styles.button__negative}>
+                    <button className={styles.button__negative} onClick={() => loginWithApple()}>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 384 512">
                             <path
