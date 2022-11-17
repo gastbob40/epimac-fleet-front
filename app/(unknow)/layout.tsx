@@ -1,7 +1,8 @@
 import '../globals.scss'
 
 import styles from "./layout.module.scss";
-
+import { NextSeo } from 'next-seo';
+import SEO from "@/lib/seo.config";
 
 
 export default async function RootLayout({children}: {
@@ -9,11 +10,14 @@ export default async function RootLayout({children}: {
 }) {
     return (
         <html lang="en">
-        {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-        <head/>
+        <head>
+            <meta charSet="utf-8"/>
+            <meta name="viewport" content="width=device-width"/>
+            <NextSeo
+                {...SEO}
+                useAppDir={true}
+            />
+        </head>
         <body className={styles.body}>
         <div style={{flexGrow: 1}}>{children}</div>
         </body>
