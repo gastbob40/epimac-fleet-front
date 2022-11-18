@@ -84,3 +84,18 @@
   color: var(--secondary-font);
   text-decoration: underline;
 }
+
+.login__error {
+  display: flex;
+  align-items: center;
+
+  color: #ff0000;
+  font-size: 14px;
+  padding: 4px 4px 0 4px;
+
+  svg {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+  }
+}

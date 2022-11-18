@@ -6,7 +6,9 @@ import styles from "./register.module.scss";
 import {Icons} from "@/components/icons"
 import Link from "next/link";
 
-export default function Login() {
+export default function Login({searchParams}: { searchParams: any }) {
+    const [error, setError] = useState<string | null | undefined>(searchParams['error']);
+
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [isValid, setIsValid] = useState<boolean>(false);
 
@@ -48,6 +50,10 @@ export default function Login() {
                 <div className={styles.login__description}>Fill out this form to request access</div>
 
                 <form onSubmit={onSubmitForm} className={styles.login__form}>
+                    {error === 'account-not-linked' && <div className={styles.account__not_found}>
+                        The account you tried to log in with is unknown to us. However, you can make a request to create an account via this form
+                    </div>}
+
                     {!isValid &&
                     <div className={styles.form__group}>
                         <input
