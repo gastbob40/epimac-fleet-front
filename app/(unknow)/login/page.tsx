@@ -9,6 +9,8 @@ import Link from "next/link";
 
 export default function Login() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const [isAppleLoading, setIsAppleLoading] = useState<boolean>(false);
+
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const router = useRouter();
@@ -54,9 +56,9 @@ export default function Login() {
     }
 
     async function loginWithApple() {
-        const result = await signIn('apple', {
+        setIsAppleLoading(true);
+        await signIn('apple', {
             redirect: false,
-
         });
     }
 
@@ -86,7 +88,7 @@ export default function Login() {
                         }
                     </div>
 
-                    <button className={styles.form__submit} disabled={isSubmitting}>
+                    <button className={styles.form__submit} disabled={isSubmitting || isAppleLoading}>
                         {isSubmitting && <Icons.spinner className={styles.login__submit__spinner}/>}
                         Sign in with Email
                     </button>
@@ -100,7 +102,9 @@ export default function Login() {
 
 
                 <div className={styles.login__providers}>
-                    <button className={styles.button__negative} onClick={() => loginWithApple()}>
+                    <button className={styles.button__negative} onClick={() => loginWithApple()} disabled={isSubmitting || isAppleLoading}>
+                        {isAppleLoading && <Icons.spinner className={styles.login__submit__spinner}/>}
+
                         <svg xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 384 512">
                             <path
@@ -110,7 +114,7 @@ export default function Login() {
                         Apple
                     </button>
 
-                    <button className={styles.button__negative}>
+                    <button className={styles.button__negative} disabled={isSubmitting || isAppleLoading}>
                         <svg id="_140620_1.0-C" data-name="140620#1.0-C" version="1.1" viewBox="0 0 28.866385 30.000001"
                              xmlns="http://www.w3.org/2000/svg"
                              width="28.866385" height="30">
