@@ -6,7 +6,7 @@ import styles from "./register.module.scss";
 import {Icons} from "@/components/icons"
 import Link from "next/link";
 
-export default function Login({searchParams}: { searchParams: any }) {
+export default function RegisterPage({searchParams}: any) {
     const [error, setError] = useState<string | null | undefined>(searchParams['error']);
 
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
