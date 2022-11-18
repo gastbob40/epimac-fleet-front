@@ -6,13 +6,18 @@ import styles from "./register.module.scss";
 import {Icons} from "@/components/icons"
 import Link from "next/link";
 
-export default function RegisterPage({searchParams}: any) {
-    const [error, setError] = useState<string | null | undefined>(searchParams['error']);
+type Props = {
+    params?: {
+    };
+    searchParams?: {
+        error?: string;
+    };
+};
+export default function RegisterPage(props: Props) {
+    const [error, setError] = useState<string | null | undefined>(props?.searchParams?.error);
 
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [isValid, setIsValid] = useState<boolean>(false);
-
-    const router = useRouter();
 
     async function onSubmitForm(event: React.FormEvent) {
         event.preventDefault();
