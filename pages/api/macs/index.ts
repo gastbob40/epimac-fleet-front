@@ -6,6 +6,9 @@ import {unstable_getServerSession} from "next-auth/next";
 import {authOptions} from "@/lib/auth";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const session = await unstable_getServerSession(req, res, authOptions)
+    console.log(JSON.stringify(session));
+
     const macs = await getMacs();
     res.status(200).json(macs);
 }

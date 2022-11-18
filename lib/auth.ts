@@ -22,30 +22,27 @@ export const authOptions: NextAuthOptions = {
         })
     ],
     callbacks: {
-        /*async signIn({user, account, profile, email, credentials}) {
+        async signIn({user, account, profile, email, credentials}) {
             if (account?.provider === 'credentials') {
                 return true;
             }
 
-            console.log("user", user);
+            const jwt = await getAccountFromEmail(user.email ?? "");
 
-            // @ts-ignore
-            const jwt = await getAccountFromEmail(user.email);
-
-            if (jwt == null) {
+            if (jwt === null) {
                 return '/register?error=account-not-linked';
             }
 
             return true;
-        },*/
+        },
 
-        async jwt({ token, user, account, profile, isNewUser }) {
+        async jwt({token, user, account, profile, isNewUser}) {
             const email = user?.email ?? "";
             const data = await getAccountFromEmail(email);
             return {...token, ...data};
         },
 
-        async session({ session, token }) {
+        async session({session, token}) {
             if (token && session && session.user) {
                 session.user.email = token.email;
                 session.user.username = token.username;
