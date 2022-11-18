@@ -34,5 +34,5 @@ export default withAuth(
 )
 
 export const config = {
-    matcher: ["/", "/login"],
+    matcher: ["/", "/macs/:path*", "/login"],
 }

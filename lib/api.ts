@@ -58,3 +58,19 @@ export async function postRegisterRequest(email: string, explication: string): P
 
     return response.ok;
 }
+
+export async function getAccountFromEmail(email: string): Promise<any> {
+    const apiHost = process.env.API_HOST;
+    const response = await fetch(`${apiHost}/api/auth/exists`, {
+        method: 'POST',
+        body: JSON.stringify({
+            email
+        })
+    });
+
+    if (!response.ok) {
+        return null;
+    }
+
+    return await response.json();
+}

@@ -54,3 +54,25 @@
   color: var(--secondary-font);
   text-decoration: underline;
 }
+
+.account__not_found {
+  background-color: #e96d76;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+
+
+  svg {
+    display: inline-block;
+    flex-shrink: 1;
+    width: 12px;
+    height: 12px;
+  }
+
+
+  svg {
+
+  }
+}

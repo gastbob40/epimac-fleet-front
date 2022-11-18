@@ -54,13 +54,10 @@ export default function Login() {
     }
 
     async function loginWithApple() {
-        console.log('loginWithApple');
         const result = await signIn('apple', {
             redirect: false,
 
         });
-
-        console.log(result);
     }
 
     return (

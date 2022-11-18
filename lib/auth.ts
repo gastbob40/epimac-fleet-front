@@ -1,7 +1,7 @@
 import {NextAuthOptions, User} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import AppleProvider from "next-auth/providers/apple";
-import {postLogin} from "@/lib/api";
+import {getAccountFromEmail, postLogin} from "@/lib/api";
 
 export const authOptions: NextAuthOptions = {
     session: {
@@ -22,9 +22,37 @@ export const authOptions: NextAuthOptions = {
         })
     ],
     callbacks: {
-        async signIn({ user, account, profile, email, credentials }) {
-            console.log(account?.provider)
-            return account?.provider !== 'apple';
+        /*async signIn({user, account, profile, email, credentials}) {
+            if (account?.provider === 'credentials') {
+                return true;
+            }
+
+            console.log("user", user);
+
+            // @ts-ignore
+            const jwt = await getAccountFromEmail(user.email);
+
+            if (jwt == null) {
+                return '/register?error=account-not-linked';
+            }
+
+            return true;
+        },*/
+
+        async jwt({ token, user, account, profile, isNewUser }) {
+            const email = user?.email ?? "";
+            const data = await getAccountFromEmail(email);
+            return {...token, ...data};
+        },
+
+        async session({ session, token }) {
+            if (token && session && session.user) {
+                session.user.email = token.email;
+                session.user.username = token.username;
+                session.user.is_superuser = token.is_superuser;
+            }
+
+            return session;
         }
     }
 }
