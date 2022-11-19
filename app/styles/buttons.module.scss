@@ -2,7 +2,7 @@
   background-color: #e96d76;
 
   &:hover {
-    background-color: darken(#e96d76, 10%);
+    background-color: darken(#e96d76, 10%) !important;
   }
 }
 
