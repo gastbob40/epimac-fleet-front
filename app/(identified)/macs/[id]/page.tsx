@@ -4,6 +4,7 @@ import Overview from "./overview";
 import StatusBadge from "@/components/statusBadge";
 import {getMac} from "@/lib/api";
 import {redirect} from "next/navigation";
+import MacActions from "./actions";
 
 type PageParams = {
     id: string
@@ -53,17 +54,10 @@ export default async function Mac({params}: { params: PageParams }) {
                         </svg>
                         Updated on {updatedAtString}
                     </div>
-
-
                 </div>
             </div>
 
-            <div className={styles.page__header__action}>
-                <button>Awake</button>
-                <button>Unlock</button>
-                <button className={styles.button__danger}>Logout</button>
-                <button className={styles.button__danger}>Restart</button>
-            </div>
+          <MacActions mac={mac}/>
         </div>
 
         <Tabs config={tabsConfig}/>

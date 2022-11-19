@@ -1,9 +1,8 @@
 import '../globals.scss'
-import Link from "next/link";
 import Macs from "./macs";
 import {getMacs} from "@/lib/api";
-import {signOut} from "next-auth/react";
 import Header from "@/components/layout/header";
+import {Toaster} from "@/components/toast";
 
 
 export default async function RootLayout({children}: {
@@ -24,6 +23,7 @@ export default async function RootLayout({children}: {
         <Macs macs={macs}/>
 
         <div style={{flexGrow: 1}}>{children}</div>
+       <Toaster position="bottom-right" />
         </body>
         </html>
     )

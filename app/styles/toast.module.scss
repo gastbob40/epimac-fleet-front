@@ -1,0 +1,35 @@
+.toast {
+  padding: 16px;
+  border-radius: 5px;
+
+  color: white;
+  background-color: black;
+  max-width: 400px;
+}
+
+.toast__default {
+  color: white;
+  background-color: black;
+}
+
+.toast__error {
+  color: white;
+  background-color: #cc3333;
+}
+
+.toast__title {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.toast__description {
+  margin: 0;
+  padding: 4px 0 0 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  opacity: 0.8;
+}
