@@ -15,12 +15,16 @@ export async function getMacs(): Promise<Mac[]> {
 }
 
 export async function getMac(id: number | string): Promise<MacDetails | null> {
+    console.log('Getting mac details for id: ' + id);
+
     const apiHost = process.env.API_HOST;
     const response = await fetch(`${apiHost}/api/imacs/${id}`, {
         next: {
             revalidate: 5
         }
     });
+
+    console.log('Response: ' + response);
 
     if (response.status !== 200) {
         return null;
