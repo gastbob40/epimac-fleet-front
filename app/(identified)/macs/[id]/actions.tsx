@@ -4,6 +4,7 @@ import {Mac} from "@/types/mac";
 import styles from "./page.module.scss";
 import Modal from "@/components/modal";
 import {useState} from "react";
+import toast from "@/components/toast";
 
 type ActionProps = {
     mac: Mac
@@ -41,15 +42,21 @@ export default function MacActions({mac}: ActionProps) {
             </div>
 
             <Modal visible={showModal}
-                   title={'Do you want to restart this mac?'}
+                   title={'Do you want to awake this mac?'}
                    onCancel={() => {
                        setShowModal(false)
                    }}
                    cancelText={'Cancel'}
                    onSubmit={() => {
                        setShowModal(false)
+                       toast({
+                           title: 'Mac awakening',
+                           message: 'The mac awakening has been scheduled. You can see the status in the task section.',
+                           type: 'default',
+                           duration: 5000
+                       });
                    }}
-                   submitText={'Restart'}>
+                   submitText={'Awake'}>
             </Modal>
         </>
     );

@@ -1,4 +1,4 @@
-import {MacDetails} from "../../../../types/macDetails";
+import {MacDetails} from "@/types/macDetails";
 import styles from "./page.module.scss";
 
 export default function Overview({mac}: { mac: MacDetails }) {
