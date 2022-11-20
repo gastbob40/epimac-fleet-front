@@ -7,8 +7,7 @@ const nextConfig = {
     },
     sassOptions: {
         includePaths: [path.join(__dirname, 'app')]
-    },
-    output: 'standalone'
+    }
 }
 
 module.exports = nextConfig

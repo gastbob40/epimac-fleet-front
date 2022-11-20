@@ -2,29 +2,21 @@ import '../globals.scss'
 import Macs from "./macs";
 import {getMacs} from "@/lib/api";
 import Header from "@/components/layout/header";
-import {Toaster} from "@/components/toast";
+
+interface DashboardLayoutProps {
+    children?: React.ReactNode
+}
 
 
-export default async function RootLayout({children}: {
-    children: React.ReactNode
-}) {
+export default async function DashboardLayout({children}: DashboardLayoutProps) {
     const macs = await getMacs();
 
     return (
-        <html lang="en">
-        {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-        <head/>
-        <body>
-       <Header />
+        <div style={{display: 'flex', height: '100%'}}>
+            <Header/>
+            <Macs macs={macs}/>
 
-        <Macs macs={macs}/>
-
-        <div style={{flexGrow: 1}}>{children}</div>
-       <Toaster position="bottom-right" />
-        </body>
-        </html>
+            {children}
+        </div>
     )
 }

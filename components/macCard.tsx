@@ -1,6 +1,4 @@
-'use client';
-
-import {Mac} from "../types/mac";
+import {Mac} from "@/types/mac";
 import styles from '../app/(identified)/page.module.scss';
 import Link from "next/link";
 import {useSelectedLayoutSegments} from 'next/navigation';
@@ -8,17 +6,18 @@ import {useEffect, useState} from "react";
 import StatusBadge from "./statusBadge";
 
 export default function MacCard({mac}: { mac: Mac }) {
-    const segments = useSelectedLayoutSegments();
+    /*const segments = useSelectedLayoutSegments();
     const macId = segments.length > 1 && segments[0] === 'macs' ? segments[1] : null;
     const [isClicked, setIsClicked] = useState(false);
 
     useEffect(() => {
         setIsClicked(mac.id.toString() === macId);
     }, [macId, mac.id]);
+     */
 
     return (
-        <Link href={`/macs/${mac.id}`} prefetch={false} onClick={() => setIsClicked(true)}>
-            <div className={`${styles.mac__list__item} ${mac.id.toString() === macId || isClicked ? styles.mac__list__item__active : ""}`}>
+        <Link href={`/macs/${mac.id}`}>
+            <div className={`${styles.mac__list__item}`}>
                 <div className={styles.mac__list__item__upper}>
 
                     <div className={styles.mac__list__item__name}>
