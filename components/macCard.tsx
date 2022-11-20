@@ -17,7 +17,7 @@ export default function MacCard({mac}: { mac: Mac }) {
     }, [macId, mac.id]);
 
     return (
-        <Link href={`/macs/${mac.id}`} onClick={() => setIsClicked(true)}>
+        <Link href={`/macs/${mac.id}`} prefetch={false} onClick={() => setIsClicked(true)}>
             <div className={`${styles.mac__list__item} ${mac.id.toString() === macId || isClicked ? styles.mac__list__item__active : ""}`}>
                 <div className={styles.mac__list__item__upper}>
 
