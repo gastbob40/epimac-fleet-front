@@ -1,3 +1,5 @@
+@import "./animation.module";
+
 .toast {
   padding: 16px;
   border-radius: 5px;
@@ -5,6 +7,7 @@
   color: white;
   background-color: black;
   max-width: 400px;
+  animation: slideIn 0.2s;
 }
 
 .toast__default {
