@@ -12,11 +12,11 @@ export default async function DashboardLayout({children}: DashboardLayoutProps) 
     const macs = await getMacs();
 
     return (
-        <div style={{display: 'flex', height: '100%'}}>
+        <div style={{display: 'flex', width: '100vw', height: '100%'}}>
             <Header/>
             <Macs macs={macs}/>
 
-            {children}
+            <div  style={{flexGrow: 1}}>{children}</div>
         </div>
     )
 }
