@@ -120,6 +120,7 @@ export default function Login() {
                         Apple
                     </button>
 
+                    {/*
                     <button className={styles.button__negative} onClick={() => loginWithCRI()} disabled={isSubmitting || isAppleLoading}>
                         <svg id="_140620_1.0-C" data-name="140620#1.0-C" version="1.1" viewBox="0 0 28.866385 30.000001"
                              xmlns="http://www.w3.org/2000/svg"
@@ -156,6 +157,7 @@ export default function Login() {
 
                         CRI
                     </button>
+                    */}
                 </div>
 
                 <Link href={'/register'} className={styles.login__register}>
